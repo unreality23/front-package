@@ -42,19 +42,18 @@ pipelines:
       - step: *Success
   
     master:
-      - parallel:
-          - step:
-              name: 'Deployment to Base Package'
-              trigger: manual
-              deployment: Base Package
-              script:
-                - pipe: atlassian/trigger-pipeline:4.3.1
-                  variables:
-                    BITBUCKET_USERNAME: $BITBUCKET_USERNAME
-                    BITBUCKET_APP_PASSWORD: $BITBUCKET_APP_PASSWORD
-                    REPOSITORY: 'fresh-dokku'
-          - step: 
-              <<: *Success
-          - echo "Front Package Successfully merged into Base"
+        - step:
+            name: 'Deployment to Base Package'
+            trigger: manual
+            deployment: Base Package
+            script:
+              - pipe: atlassian/trigger-pipeline:4.3.1
+                variables:
+                  BITBUCKET_USERNAME: $BITBUCKET_USERNAME
+                  BITBUCKET_APP_PASSWORD: $BITBUCKET_APP_PASSWORD
+                  REPOSITORY: 'fresh-dokku'
+        - step: 
+            <<: *Success
+        - echo "Front Package Successfully merged into Base"
 
           

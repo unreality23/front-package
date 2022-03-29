@@ -1,0 +1,60 @@
+image: php:8.0-fpm
+
+definitions:
+  # Service definitions go here
+  #services: 
+  steps:
+    - step: &Test-step
+        name: PHPUnit Setup & Run
+        caches:
+          - composer
+          - node
+        script:
+          - apt update && apt install -qy git curl zip unzip
+          - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+          - composer install --no-interaction --no-scripts
+          - vendor/bin/phpunit --filter 'Tests\\Feature' -c phpunit.xml
+        artifacts:
+          - "vendor/**"  
+    # PHP Linting
+    - step: &PHP-CS-Fixer
+        name: PHP-CS-Fixer
+        image: sixlive/php-lint-fix
+        script:
+          - cd src
+          - php-cs-fixer fix --diff --allow-risky=yes --config=../.php-cs-fixer.php . 
+    # Teams Webhook Notification 
+    - step: &Success
+        name: Success
+        script:
+          - curl -d "{'text':'Front Package Pipeline Success'}" -H "Content-Type:application/json" -X POST https://vetukltd.webhook.office.com/webhookb2/cb47a354-77c0-4479-9983-0fc530a4e92a@9eb917df-6e47-40b3-8df0-bd1aca0f9501/IncomingWebhook/19812972c47d402c81559ab5488e442b/295e792c-b7e5-4267-9686-b9872afca96c
+
+pipelines:
+  branches:
+    '{feature/*,hotfix/*}':
+      - step:
+          script:
+            - echo "This script runs only on commit to branches with names that match the feature/* hotfix/* pattern."
+
+    develop:
+      - step: *Test-step
+      - step: *PHP-CS-Fixer
+      - step: *Success
+  
+    master:
+      - parallel:
+          - step:
+              name: 'Deployment to Base Package'
+              trigger: manual
+              deployment: Base Package
+              script:
+                - pipe: atlassian/trigger-pipeline:4.3.1
+                  variables:
+                    BITBUCKET_USERNAME: $BITBUCKET_USERNAME
+                    BITBUCKET_APP_PASSWORD: $BITBUCKET_APP_PASSWORD
+                    REPOSITORY: 'fresh-dokku'
+          - step: 
+              <<: *Success
+          - echo "Front Package Successfully merged into Base"
+
+          

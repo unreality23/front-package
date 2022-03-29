@@ -1,0 +1,185 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+.fa-1x {
+    font-size: 1.5rem;
+}
+.navbar-toggler.toggler-example {
+    cursor: pointer;
+}
+.dark-blue-text {
+    color: #0a38f5;
+}
+.dark-pink-text {
+    color: #ac003a;
+}
+.dark-amber-text {
+    color: #ff6f00;
+}
+.dark-teal-text {
+    color: #004d40;
+}
+.top-px-65 {
+    top: 65px;
+}
+
+div#shoppingCart {
+    height: calc(100vh - 64px);
+}
+
+label.root_title i {
+    transition: all 0.3s ease-in;
+}
+label.root_title.active i {
+    transform: rotate(90deg);
+}
+
+#product_collection_sort.active i {
+    transform: rotate(180deg);
+}
+
+#product_collection_sort {
+    width: 9.33%;
+}
+
+div#imageHolder {
+    width: 13%;
+}
+
+div#mainProductImage {
+    position: relative;
+}
+/*div#invisibleBox {*/
+/*    position: absolute;*/
+/*    left: 0;*/
+/*    right: 0;*/
+/*    padding-top: 96%;*/
+/*}*/
+
+@media (min-width: 1025px) and (max-width: 1075px) {
+    #productImages {
+        height: 580px;
+    }
+}
+
+@media (min-width: 1076px) and (max-width: 1128px) {
+    #productImages {
+        height: 610px;
+    }
+}
+
+@media (min-width: 1129px) and (max-width: 1179px) {
+    #productImages {
+        height: 640px;
+    }
+}
+
+@media (min-width: 1178px) and (max-width: 1228px) {
+    #productImages {
+        height: 668px;
+    }
+}
+
+@media (min-width: 1229px) and (max-width: 1279px) {
+    #productImages {
+        height: 693px;
+    }
+}
+
+@media (min-width: 1280px) {
+    #productImages {
+        height: 696px;
+    }
+}
+
+@media (max-width: 767px) {
+    .sizeSelector button {
+        width: calc(33.33% - 1rem);
+    }
+}
+
+.content-css p {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+.content-css a {
+    text-decoration: underline;
+}
+
+.content-css h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding-bottom: 1em;
+}
+
+.content-css h2 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    padding: 1em 0;
+}
+
+.content-css ol,
+.content-css ul {
+    list-style: auto;
+    margin: auto 1.4em;
+    padding: unset;
+}
+
+.content-css li {
+    padding: 0.2em 0;
+    font-size: 1rem;
+}
+
+.content-css tr th {
+    text-align: left;
+    font-size: 0.8rem;
+    background: #ccc;
+    padding: 0.5em 0.3em;
+    font-weight: 500;
+}
+
+.content-css tr:nth-child(2n + 3) {
+    background: #efefef;
+}
+
+.content-css tr,
+.content-css td p,
+.content-css td ol,
+.content-css td li {
+    font-size: 0.9rem;
+}
+
+.content-css img {
+    text-align: center;
+}
+
+.content-css table {
+    border: 1px solid #000;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: all 0.2s ease-in;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
+}
+
+#bottom-del input {
+    width: 27%;
+    height: 2em;
+}
+
+.pink {
+    background-color: #fae7ec;
+}
+
+body {
+    background: red;
+}

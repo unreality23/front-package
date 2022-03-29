@@ -1,0 +1,57 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "npm run development",
+        "development": "mix",
+        "watch": "mix watch",
+        "watch-poll": "mix watch -- --watch-options-poll=1000",
+        "hot": "mix watch --hot",
+        "eslint-test": "eslint",
+        "prod": "npm run production",
+        "production": "mix --production"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^16.2.3",
+        "@commitlint/config-conventional": "^16.2.1",
+        "@tailwindcss/forms": "^0.2.1",
+        "@vue/compiler-sfc": "^3.1.1",
+        "alpinejs": "^2.7.3",
+        "autoprefixer": "^10.1.0",
+        "axios": "^0.21.1",
+        "bootstrap": "^4.6.0",
+        "commitlint-config-jira": "^1.6.3",
+        "commitlint-plugin-jira-rules": "^1.6.3",
+        "cypress": "^9.5.1",
+        "eslint": "^8.11.0",
+        "eslint-config-airbnb-base": "^15.0.0",
+        "eslint-plugin-import": "^2.25.4",
+        "eslint-plugin-vue": "^7.20.0",
+        "husky": "^7.0.4",
+        "jquery": "^3.6",
+        "laravel-mix": "^6.0.34",
+        "lint-staged": "^12.3.7",
+        "lodash": "^4.17.19",
+        "popper.js": "^1.16.1",
+        "postcss-import": "^12.0.1",
+        "prettier": "^2.6.0",
+        "tailwindcss": "^2.0.2",
+        "vue-loader": "^16.2.0",
+        "vue-template-compiler": "^2.6.12"
+    },
+    "dependencies": {
+        "@fortawesome/fontawesome-free": "^5.15.4",
+        "acorn": "^8.5.0",
+        "vue": "^3.2.31",
+        "vue-cookies": "^1.7.4",
+        "vue-laravel-csrf": "^1.0.0",
+        "vue-slick-carousel": "^1.0.6",
+        "vue3-datepicker": "^0.2.5",
+        "vuex": "^4.0.2",
+        "vuex-persistedstate": "^4.0.0-beta.3"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    }
+}

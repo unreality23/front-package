@@ -1,0 +1,5 @@
+**/vendor
+**/src/resources/js/viewsApp.js
+**/lint-staged.config.js
+
+

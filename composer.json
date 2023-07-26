@@ -13,7 +13,8 @@
     "require": {
         "laravel/ui": "^4.0@dev",
         "laravel/breeze": "2.x-dev",
-        "friendsofphp/php-cs-fixer": "dev-master"
+        "friendsofphp/php-cs-fixer": "dev-master",
+        "laravel/laravel": "8.x-dev"
     },
     "autoload": {
         "psr-4": {
